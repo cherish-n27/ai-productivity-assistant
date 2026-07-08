@@ -26,9 +26,9 @@ function EmailPage() {
   return (
     <AIToolPage
       icon={Mail}
-      title="Smart Email Generator"
-      description="Draft clear, well-structured emails tailored to your recipient and intent."
-      system="You are an expert business writer. Generate a complete email with a clear subject line and body. Use markdown. Keep it concise, natural, and free of filler. Never invent facts."
+      title="Email generator"
+      description="Draft a clear, on-brand reply for a ticket, user, or vendor."
+      system="You are a senior help desk technician writing to a non-technical end user. Produce a full email with subject and body. Be warm but efficient. Explain the fix in plain language, list any steps the user needs to take, and set expectations for follow-up. Never invent ticket numbers, dates, or product versions."
       canSubmit={purpose.trim().length > 0}
       submitLabel="Draft email"
       buildPrompt={() =>

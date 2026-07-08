@@ -42,12 +42,16 @@ function ChatbotPage() {
   return (
     <div className="mx-auto flex h-[calc(100vh-10rem)] max-w-4xl flex-col gap-4">
       <header className="flex items-start gap-3">
-        <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-indigo-fill text-primary">
           <MessageSquare className="h-5 w-5" />
         </div>
         <div className="min-w-0 flex-1">
-          <h1 className="truncate text-2xl font-bold text-foreground">AI Chatbot</h1>
-          <p className="text-sm text-muted-foreground">Conversational assistant for quick help across your workday.</p>
+          <h1 className="truncate font-display text-lg font-semibold text-foreground">
+            Triage chatbot
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Quick answers on tickets, tools, and internal runbooks.
+          </p>
         </div>
         {messages.length > 0 && (
           <Button variant="ghost" size="sm" onClick={() => setMessages([])}>
@@ -64,7 +68,7 @@ function ChatbotPage() {
           <div className="grid h-full place-items-center text-center text-sm text-muted-foreground">
             <div className="space-y-2">
               <Bot className="mx-auto h-10 w-10 text-primary/60" />
-              <p>Ask anything — brainstorm, draft, decide, or plan.</p>
+              <p>Ask about a ticket, an error, or a runbook step.</p>
             </div>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Outlet, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar";
@@ -8,10 +8,6 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/_app")({
   component: AppLayout,
 });
-
-const HOUR = new Date().getHours();
-const GREETING =
-  HOUR < 5 ? "Working late" : HOUR < 12 ? "Good morning" : HOUR < 18 ? "Good afternoon" : "Good evening";
 
 const KEYWORDS: Array<{ match: RegExp; to: "/email" | "/meeting" | "/tasks" | "/research" | "/chatbot" }> = [
   { match: /email|draft|reply|write/i, to: "/email" },
@@ -24,6 +20,14 @@ const KEYWORDS: Array<{ match: RegExp; to: "/email" | "/meeting" | "/tasks" | "/
 function AppLayout() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
+  const [greeting, setGreeting] = useState("Good morning");
+
+  useEffect(() => {
+    const h = new Date().getHours();
+    setGreeting(
+      h < 5 ? "Working late" : h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening",
+    );
+  }, []);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -48,7 +52,7 @@ function AppLayout() {
               <SidebarTrigger className="md:hidden" />
               <div className="min-w-0">
                 <p className="truncate font-display text-base font-semibold text-foreground sm:text-lg">
-                  {GREETING}, Riya
+                  {greeting}, Riya
                 </p>
                 <p className="hidden truncate text-xs text-muted-foreground sm:block">
                   Ballast is steady. 12 tickets in queue this morning.

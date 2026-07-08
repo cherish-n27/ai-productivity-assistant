@@ -58,7 +58,7 @@ function Dashboard() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Work smarter, not harder.
         </h1>
-        <p max-w-2xl className="max-w-2xl text-muted-foreground">
+        <p className="max-w-2xl text-muted-foreground">
           Flowdesk brings AI to your everyday workplace tasks — from drafting emails to planning
           your week — so you can focus on what matters.
         </p>

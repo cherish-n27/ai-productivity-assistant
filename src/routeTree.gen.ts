@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as AppIndexRouteImport } from './routes/_app.index'
 import { Route as AppTasksRouteImport } from './routes/_app.tasks'
+import { Route as AppResearchRouteImport } from './routes/_app.research'
 import { Route as AppMeetingRouteImport } from './routes/_app.meeting'
 import { Route as AppEmailRouteImport } from './routes/_app.email'
 
@@ -29,6 +30,11 @@ const AppTasksRoute = AppTasksRouteImport.update({
   path: '/tasks',
   getParentRoute: () => AppRoute,
 } as any)
+const AppResearchRoute = AppResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppMeetingRoute = AppMeetingRouteImport.update({
   id: '/meeting',
   path: '/meeting',
@@ -44,11 +50,13 @@ export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
   '/email': typeof AppEmailRoute
   '/meeting': typeof AppMeetingRoute
+  '/research': typeof AppResearchRoute
   '/tasks': typeof AppTasksRoute
 }
 export interface FileRoutesByTo {
   '/email': typeof AppEmailRoute
   '/meeting': typeof AppMeetingRoute
+  '/research': typeof AppResearchRoute
   '/tasks': typeof AppTasksRoute
   '/': typeof AppIndexRoute
 }
@@ -57,19 +65,21 @@ export interface FileRoutesById {
   '/_app': typeof AppRouteWithChildren
   '/_app/email': typeof AppEmailRoute
   '/_app/meeting': typeof AppMeetingRoute
+  '/_app/research': typeof AppResearchRoute
   '/_app/tasks': typeof AppTasksRoute
   '/_app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/email' | '/meeting' | '/tasks'
+  fullPaths: '/' | '/email' | '/meeting' | '/research' | '/tasks'
   fileRoutesByTo: FileRoutesByTo
-  to: '/email' | '/meeting' | '/tasks' | '/'
+  to: '/email' | '/meeting' | '/research' | '/tasks' | '/'
   id:
     | '__root__'
     | '/_app'
     | '/_app/email'
     | '/_app/meeting'
+    | '/_app/research'
     | '/_app/tasks'
     | '/_app/'
   fileRoutesById: FileRoutesById
@@ -101,6 +111,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppTasksRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/research': {
+      id: '/_app/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof AppResearchRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/meeting': {
       id: '/_app/meeting'
       path: '/meeting'
@@ -121,6 +138,7 @@ declare module '@tanstack/react-router' {
 interface AppRouteChildren {
   AppEmailRoute: typeof AppEmailRoute
   AppMeetingRoute: typeof AppMeetingRoute
+  AppResearchRoute: typeof AppResearchRoute
   AppTasksRoute: typeof AppTasksRoute
   AppIndexRoute: typeof AppIndexRoute
 }
@@ -128,6 +146,7 @@ interface AppRouteChildren {
 const AppRouteChildren: AppRouteChildren = {
   AppEmailRoute: AppEmailRoute,
   AppMeetingRoute: AppMeetingRoute,
+  AppResearchRoute: AppResearchRoute,
   AppTasksRoute: AppTasksRoute,
   AppIndexRoute: AppIndexRoute,
 }

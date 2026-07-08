@@ -5,17 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Ballast IT design system — persistent help desk app shell.
+ * Palette: warm off-white surface, deep indigo primary, coral for
+ * urgency, sage for confirmation.
  */
 
 @theme inline {
@@ -26,6 +18,8 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -59,43 +53,63 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-coral: var(--coral);
+  --color-coral-fill: var(--coral-fill);
+  --color-coral-strong: var(--coral-strong);
+  --color-sage: var(--sage);
+  --color-sage-fill: var(--sage-fill);
+  --color-sage-strong: var(--sage-strong);
+  --color-amber: var(--amber);
+  --color-indigo-fill: var(--indigo-fill);
 }
 
 :root {
-  --radius: 0.625rem;
-  /* Fiery Ocean palette: #780000 #C1121F #FDF0D5 #003049 #669BBC */
-  --background: oklch(0.955 0.028 85);        /* #FDF0D5 */
-  --foreground: oklch(0.29 0.06 240);         /* #003049 */
-  --card: oklch(0.985 0.012 85);
-  --card-foreground: oklch(0.29 0.06 240);
-  --popover: oklch(0.985 0.012 85);
-  --popover-foreground: oklch(0.29 0.06 240);
-  --primary: oklch(0.52 0.22 27);             /* #C1121F */
-  --primary-foreground: oklch(0.985 0.012 85);
-  --secondary: oklch(0.92 0.03 85);
-  --secondary-foreground: oklch(0.29 0.06 240);
-  --muted: oklch(0.92 0.025 85);
-  --muted-foreground: oklch(0.45 0.05 240);
-  --accent: oklch(0.66 0.09 240);             /* #669BBC */
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.36 0.19 27);         /* #780000 */
-  --destructive-foreground: oklch(0.985 0.012 85);
-  --border: oklch(0.86 0.03 85);
-  --input: oklch(0.86 0.03 85);
-  --ring: oklch(0.52 0.22 27);
-  --chart-1: oklch(0.52 0.22 27);
-  --chart-2: oklch(0.66 0.09 240);
-  --chart-3: oklch(0.29 0.06 240);
-  --chart-4: oklch(0.36 0.19 27);
-  --chart-5: oklch(0.955 0.028 85);
-  --sidebar: oklch(0.29 0.06 240);            /* #003049 */
-  --sidebar-foreground: oklch(0.955 0.028 85);
-  --sidebar-primary: oklch(0.52 0.22 27);
-  --sidebar-primary-foreground: oklch(0.985 0.012 85);
-  --sidebar-accent: oklch(0.66 0.09 240);
-  --sidebar-accent-foreground: oklch(0.99 0 0);
-  --sidebar-border: oklch(0.38 0.06 240);
-  --sidebar-ring: oklch(0.52 0.22 27);
+  --radius: 0.875rem;
+  /* Ballast IT palette */
+  --background: oklch(0.968 0.006 80);        /* #F7F5F2 warm off-white */
+  --foreground: oklch(0.24 0.005 60);         /* #232220 charcoal */
+  --card: oklch(1 0 0);                       /* #FFFFFF */
+  --card-foreground: oklch(0.24 0.005 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.005 60);
+  --primary: oklch(0.46 0.22 275);            /* #4C3AE3 deep indigo */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.02 280);          /* indigo light fill */
+  --secondary-foreground: oklch(0.46 0.22 275);
+  --muted: oklch(0.94 0.006 80);
+  --muted-foreground: oklch(0.48 0.010 80);   /* #6B685F */
+  --accent: oklch(0.95 0.02 280);
+  --accent-foreground: oklch(0.46 0.22 275);
+  --destructive: oklch(0.55 0.14 40);         /* coral strong */
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.90 0.014 85);             /* #E6E2D8 */
+  --input: oklch(0.90 0.014 85);
+  --ring: oklch(0.46 0.22 275);
+  --chart-1: oklch(0.46 0.22 275);
+  --chart-2: oklch(0.75 0.16 40);
+  --chart-3: oklch(0.65 0.09 140);
+  --chart-4: oklch(0.55 0.14 40);
+  --chart-5: oklch(0.48 0.07 140);
+
+  /* Priority + status accents */
+  --coral: oklch(0.75 0.16 40);               /* #FF8A5B */
+  --coral-fill: oklch(0.94 0.03 50);          /* #FFEEE4 */
+  --coral-strong: oklch(0.55 0.14 40);        /* #B85A32 */
+  --sage: oklch(0.65 0.09 140);               /* #6E9C6B */
+  --sage-fill: oklch(0.95 0.02 140);          /* #EAF2E7 */
+  --sage-strong: oklch(0.48 0.07 140);        /* #4C6E49 */
+  --amber: oklch(0.80 0.13 80);
+  --indigo-fill: oklch(0.95 0.02 280);        /* #EEECFB */
+
+  /* Sidebar — white with light indigo active */
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.24 0.005 60);
+  --sidebar-primary: oklch(0.46 0.22 275);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.95 0.02 280);
+  --sidebar-accent-foreground: oklch(0.46 0.22 275);
+  --sidebar-border: oklch(0.90 0.014 85);
+  --sidebar-ring: oklch(0.46 0.22 275);
 }
 
 .dark {
@@ -141,5 +155,12 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }

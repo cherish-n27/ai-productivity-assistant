@@ -77,16 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Flowdesk — AI Workplace Productivity Assistant" },
+      { title: "Ballast IT — Help Desk Assistant" },
       {
         name: "description",
         content:
-          "Automate workplace tasks with AI: draft emails, summarize meetings, plan tasks, research topics, and chat with an assistant.",
+          "Ballast IT is the persistent help desk workspace: draft emails, summarize notes, plan the day, research issues, and triage tickets.",
       },
-      { property: "og:title", content: "Flowdesk — AI Workplace Productivity" },
+      { property: "og:title", content: "Ballast IT — Help Desk Assistant" },
       {
         property: "og:description",
-        content: "AI-powered assistant for emails, meeting notes, tasks, research, and chat.",
+        content: "The steady help desk workspace — email, notes, planning, research, and triage in one shell.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -97,6 +97,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

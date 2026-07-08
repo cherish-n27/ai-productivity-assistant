@@ -18,9 +18,9 @@ function MeetingPage() {
   return (
     <AIToolPage
       icon={FileText}
-      title="Meeting Notes Summarizer"
-      description="Turn raw notes or transcripts into structured summaries with action items."
-      system="You are a meeting scribe. Produce a clean summary with: 1) TL;DR (2-3 sentences), 2) Key decisions, 3) Action items with owner when possible, 4) Open questions. Use markdown headings. Never fabricate details not present in the notes."
+      title="Notes summarizer"
+      description="Turn raw standup or incident notes into a shareable brief."
+      system="You are a help desk scribe. Produce a clean markdown summary with exactly these three sections in this order: 1) ## Key points — bulleted list of the most important facts and decisions. 2) ## Action items — bulleted list of concrete follow-ups with an owner when named. 3) ## Deadlines — bulleted list of dates or SLAs mentioned. Never fabricate details not present in the notes; if a section has no content, write '—'."
       canSubmit={notes.trim().length > 20}
       submitLabel="Summarize"
       buildPrompt={() =>

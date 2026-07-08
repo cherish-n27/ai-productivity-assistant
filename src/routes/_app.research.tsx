@@ -26,11 +26,11 @@ function ResearchPage() {
   return (
     <AIToolPage
       icon={Search}
-      title="AI Research Assistant"
-      description="Structured briefs on any topic — background, key points, and open questions."
-      system="You are a research analyst. Produce a well-organized brief with: 1) Executive summary, 2) Background, 3) Key points (bulleted), 4) Considerations / trade-offs, 5) Open questions to investigate further, 6) Suggested next steps. Note when a claim is uncertain. Use markdown."
+      title="Research assistant"
+      description="Paste an error, symptom, or unfamiliar topic. Get a triage brief."
+      system="You are a senior IT support engineer helping a colleague triage an issue. Produce a markdown brief with exactly these three sections in this order: 1) ## What this means — plain-language explanation of the error or topic. 2) ## Likely causes — bulleted list, most probable first, with a one-line rationale each. 3) ## Suggested steps — numbered, ordered from safest and quickest to more invasive. Note when a step needs elevated permissions. Never invent CVEs or vendor advisories."
       canSubmit={topic.trim().length > 0}
-      submitLabel="Research topic"
+      submitLabel="Investigate"
       buildPrompt={() =>
         `Topic: ${topic}\nAudience: ${audience || "general"}\nDepth: ${depth}\nSpecific questions to address:\n${questions || "(none)"}`
       }

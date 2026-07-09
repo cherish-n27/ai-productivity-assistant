@@ -77,26 +77,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ballast IT — Help Desk Assistant" },
+      { title: "Ballast IT — Support Workspace" },
       {
         name: "description",
         content:
-          "Ballast IT is the persistent help desk workspace: draft emails, summarize notes, plan the day, research issues, and triage tickets.",
+          "Ballast IT is an AI-powered IT support workspace. Draft emails, summarize notes, prioritize tickets, research fixes, and triage chats, all in one calm place.",
       },
-      { property: "og:title", content: "Ballast IT — Help Desk Assistant" },
+      { property: "og:title", content: "Ballast IT — Support Workspace" },
       {
         property: "og:description",
-        content: "The steady help desk workspace — email, notes, planning, research, and triage in one shell.",
+        content: "Ballast IT is an AI-powered IT support workspace. Draft emails, summarize notes, prioritize tickets, research fixes, and triage chats, all in one calm place.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Ballast IT — Support Workspace" },
+      { name: "twitter:description", content: "Ballast IT is an AI-powered IT support workspace. Draft emails, summarize notes, prioritize tickets, research fixes, and triage chats, all in one calm place." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Llbqz10xATZYnxuKWoR0eDVgq302/social-images/social-1783586624343-Media.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Llbqz10xATZYnxuKWoR0eDVgq302/social-images/social-1783586624343-Media.webp" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
